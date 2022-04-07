@@ -5,35 +5,54 @@ busycat.input = function()
     return io.stdin:read()
 end
 
+-- Init
 busycat.init = function()
     dofile("/etc/init.d/1")
 end
 
+-- Creates file then exit
 busycat.touch = function(filename)
-    if filename == type("string") then
         local file = io.open(filename,"w+")
-        if file.write("") == true then
-            file:flush()
-            file:close()
-            file = nil
+        file:flush()
+        file:close()
+        file = nil
+        return true
+end
+
+-- A basic text editer that lets you add lines
+busycat.append = function(filename)
+    file = io.open(filename,"r+")
+    quit = 0
+    while quit == 0 do
+        io.stdout:write("append > ")
+        local command = busycat.input()
+        if command == ":q" then
+            quit = 1
         else
-            print("Failed to create the file!")
+            file:write(command.."\n")
         end
-    else
-        print("Invaild file type, must use a string leading to the file")
     end
+    file:flush()
+    file:close()
+    file = nil
+    quit = nil
 end
 
 busycat.cat = function(filename)
-    if filename == type("string") then
         local file = io.open(filename,"r")
         print(file:read("a"))
         file:close()
         file = nil
         return true
-    else
-        print("Invaild file type, must use a string leading to the file")
-    end
+end
+busycat.catfetch = function()
+    print("\x1b[34m         O")
+    print("\x1b[34m  OOOOOOO")
+    print("\x1b[34m O     \x1b[0mO \x1b[34mO \x1b[0m OS: LuaOS")
+    print("\x1b[34m O       O")
+    print("\x1b[34m O LuaOS O")
+    print("\x1b[34m O       O")
+    print("\x1b[34m  OOOOOOO \x1b[0m")
 end
 
 -- Trash SHell
@@ -41,6 +60,8 @@ busycat.tsh = function()
     tsh = busycat.tsh
     touch = busycat.touch
     cat = busycat.cat
+    catfetch = busycat.catfetch
+    append = busycat.append
     while true do
         io.stdout:write("> ")
         local command = busycat.input()

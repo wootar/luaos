@@ -16,12 +16,12 @@ mkdir -vp rootfs/usr/local/share/lua/5.4
 mkdir -vp rootfs/etc/init.d
 cp ../InitLuas/1.lua rootfs/etc/init.d/1
 cp ../BusyCat/busycat.lib rootfs/usr/local/share/lua/5.4/busycat.lua
-cp ../BusyCat/main.lua rootfs/bin/lua
+cp ../BusyCat/main.lua rootfs/bin/busycat
 cp ../InitLuas/initwrapper rootfs/init
 echo "=== Stage 0, done ==="
 
 echo "=== Stage 1, Building lua ==="
-wget -O lua.tar.gz $LUAURL
+wget -nc -O lua.tar.gz $LUAURL
 tar zxf lua.tar.gz
 mv "lua-5.4.4" "lua"
 cd lua

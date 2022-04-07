@@ -1,10 +1,12 @@
 {
     "Lua.diagnostics.disable": [
-        "deprecated"
+        "deprecated",
+        "lowercase-global"
     ],
     "Lua.diagnostics.globals": [
         "tsh",
         "touch",
-        "cat"
+        "cat",
+        "catfetch"
     ]
 }
