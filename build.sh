@@ -13,6 +13,7 @@ echo "=== Stage 0, done ==="
 
 echo "=== Stage 1, Building lua ==="
 wget -O lua.tar.gz $LUAURL
+tar zxf lua.tar.gz
 mv "lua-5.4.4" "lua"
 cd lua
 echo "Applying patches"
