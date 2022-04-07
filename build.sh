@@ -4,7 +4,7 @@ mkdir workdir
 cd workdir
 echo "=== Stage 0, Preparing ==="
 mkdir -v rootfs
-mkdir -v rootfs/{bin,dev,etc,lib,proc,sbin,sys,usr/local/share/lua/5.4,etc/init.d}
+mkdir -vp rootfs/{bin,dev,etc,lib,proc,sbin,sys,usr/local/share/lua/5.4,etc/init.d}
 cp ../InitLuas/1.lua rootfs/etc/init.d/1
 cp ../BusyCat/busycat.lib rootfs/usr/local/share/lua/5.4/busycat.lua
 cp ../BusyCat/main.lua rootfs/bin/lua
