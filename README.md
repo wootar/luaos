@@ -3,8 +3,5 @@
 # Why?
 Why not
 
-# Compiling coreutils
-STUB
-
-# TODO:
-[ ] Clean up the mess
+# Building the rootfs
+Just run build.sh
