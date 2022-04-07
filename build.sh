@@ -42,4 +42,4 @@ cd rootfs
 find . -print0 | cpio --null --create --format=newc | gzip --best > ../out.cpio.gz
 cd ..
 echo "=== Stage 2, done ==="
-echo "You may now use the initrd with any kernel you wish."
+echo "You may now build the kernel"
