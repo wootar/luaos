@@ -13,7 +13,7 @@ How to compile:
 
 First we need to get the source via git: `git clone https://github.com/wooter6928196219911/luaos.git`
 
-Then install GCC, libelf-dev if your on ubuntu or debian
+Then install GCC, libelf-dev, flex if your on ubuntu or debian
 
 If your using arch or any arch based distro (eg Artix) install base-devel and libelf
 
