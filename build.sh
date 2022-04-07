@@ -17,7 +17,8 @@ tar zxf lua.tar.gz
 mv "lua-5.4.4" "lua"
 cd lua
 echo "Applying patches"
-cat src/Makefile | sed "s/MYCFLAGS=/MYCFLAGS=-static/g" | sed "s/MYLDFLAGS=/MYLDFLAGS=-static/g" | sed "s/CMCFLAGS=/CMCFLAGS=-static/g" > src/Makefile
+cp src/Makefile src/Makefile.org
+cat src/Makefile.org | sed "s/MYCFLAGS=/MYCFLAGS=-static/g" | sed "s/MYLDFLAGS=/MYLDFLAGS=-static/g" | sed "s/CMCFLAGS=/CMCFLAGS=-static/g" > src/Makefile
 echo "Now making!"
 make -j$(nproc)
 echo "Done, now copying the binary to the rootfs"
