@@ -1,7 +1,7 @@
 #!/bin/sh
 echo "Preparing to build the kernel"
-apt update || echo Cannot install elf
-apt install -y libelf-dev || true
+sudo apt update || echo Cannot install elf
+sudo apt install -y libelf-dev || true
 
 mkdir -v workdir || echo "Was made"
 cd workdir
