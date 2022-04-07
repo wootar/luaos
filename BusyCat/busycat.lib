@@ -6,7 +6,6 @@ busycat.input = function()
 end
 
 busycat.init = function()
-    print("Potato Init")
     dofile("/etc/init.d/1")
 end
 
