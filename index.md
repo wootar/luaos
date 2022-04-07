@@ -15,4 +15,6 @@ First we need to get the source via git: `git clone https://github.com/wooter692
 
 Then install GCC, libelf-dev if your on ubuntu or debian
 
+If your using arch or any arch based distro (eg Artix) install base-devel and libelf
+
 Once done, cd into the repo and run `make` then `make kernel`
