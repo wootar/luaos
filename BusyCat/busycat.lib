@@ -9,8 +9,38 @@ busycat.init = function()
     dofile("/etc/init.d/1")
 end
 
+busycat.touch = function(filename)
+    if filename == type("string") then
+        local file = io.open(filename,"w+")
+        if file.write("") == true then
+            file:flush()
+            file:close()
+            file = nil
+        else
+            print("Failed to create the file!")
+        end
+    else
+        print("Invaild file type, must use a string leading to the file")
+    end
+end
+
+busycat.cat = function(filename)
+    if filename == type("string") then
+        local file = io.open(filename,"r")
+        print(file:read("a"))
+        file:close()
+        file = nil
+        return true
+    else
+        print("Invaild file type, must use a string leading to the file")
+    end
+end
+
 -- Trash SHell
 busycat.tsh = function()
+    tsh = busycat.tsh
+    touch = busycat.touch
+    cat = busycat.cat
     while true do
         io.stdout:write("> ")
         local command = busycat.input()
