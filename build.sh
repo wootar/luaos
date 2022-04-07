@@ -23,6 +23,8 @@ echo "Now making!"
 make -j$(nproc)
 echo "Done, now copying the binary to the rootfs"
 sleep 1
+ls .
+ls src
 cp src/lua ../rootfs/bin/lua
 cd ..
 echo "=== Stage 1, done ==="
