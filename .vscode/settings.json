@@ -3,6 +3,8 @@
         "deprecated"
     ],
     "Lua.diagnostics.globals": [
-        "tsh"
+        "tsh",
+        "touch",
+        "cat"
     ]
 }
