@@ -1,0 +1,10 @@
+#!/bin/lua
+
+require("busycat")
+
+local function init()
+    print("Potato Init")
+    dofile("/etc/init.d/1")
+end
+
+init()
