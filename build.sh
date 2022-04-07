@@ -4,7 +4,16 @@ mkdir workdir
 cd workdir
 echo "=== Stage 0, Preparing ==="
 mkdir -v rootfs
-mkdir -vp rootfs/{bin,dev,etc,lib,proc,sbin,sys,usr/local/share/lua/5.4,etc/init.d}
+mkdir -vp rootfs/bin
+mkdir -vp rootfs/dev
+mkdir -vp rootfs/etc
+mkdir -vp rootfs/lib
+mkdir -vp rootfs/proc
+mkdir -vp rootfs/sbin
+mkdir -vp rootfs/sys
+mkdir -vp rootfs/usr
+mkdir -vp rootfs/usr/local/share/lua/5.4
+mkdir -vp rootfs/etc/init.d
 cp ../InitLuas/1.lua rootfs/etc/init.d/1
 cp ../BusyCat/busycat.lib rootfs/usr/local/share/lua/5.4/busycat.lua
 cp ../BusyCat/main.lua rootfs/bin/lua
@@ -23,8 +32,6 @@ echo "Now making!"
 make -j$(nproc)
 echo "Done, now copying the binary to the rootfs"
 sleep 1
-ls .
-ls src
 cp src/lua ../rootfs/bin/lua
 cd ..
 echo "=== Stage 1, done ==="
