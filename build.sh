@@ -1,5 +1,5 @@
 #!/bin/sh
-LUAURL="https://www.lua.org/ftp/lua-5.4.4.tar.gz"
+LUAGIT="https://github.com/wooter6928196219911/lua"
 mkdir workdir
 cd workdir
 echo "=== Stage 0, Preparing ==="
@@ -21,13 +21,14 @@ cp ../InitLuas/initwrapper rootfs/init
 echo "=== Stage 0, done ==="
 
 echo "=== Stage 1, Building lua ==="
-wget -nc -O lua.tar.gz $LUAURL
-tar zxf lua.tar.gz
-mv "lua-5.4.4" "lua"
+# wget -nc -O lua.tar.gz $LUAURL
+# tar zxf lua.tar.gz
+# mv "lua-5.4.4" "lua"
+git clone $LUAGIT lua
 cd lua
-echo "Applying patches"
-cp src/Makefile src/Makefile.org
-cat src/Makefile.org | sed "s/MYCFLAGS=/MYCFLAGS=-static/g" | sed "s/MYLDFLAGS=/MYLDFLAGS=-static/g" | sed "s/CMCFLAGS=/CMCFLAGS=-static/g" > src/Makefile
+# echo "Applying patches"
+# cp Makefile Makefile.org
+# cat Makefile.org | sed "s/MYCFLAGS=/MYCFLAGS=-static/g" | sed "s/MYLDFLAGS=/MYLDFLAGS=-static/g" | sed "s/CMCFLAGS=/CMCFLAGS=-static/g" > src/Makefile
 echo "Now making!"
 make -j$(nproc)
 echo "Done, now copying the binary to the rootfs"
