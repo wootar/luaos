@@ -1,3 +1,4 @@
+# WARNING: This project is not mantained anymore.
 # LuaOS, a pointless OS or linux distro with it's own coreutils, that was made with lua and based off the linux kernel
 
 # Why?

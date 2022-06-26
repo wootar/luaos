@@ -1,5 +1,5 @@
 #!/bin/sh
-LUAGIT="https://github.com/wooter6928196219911/lua"
+LUAGIT="https://github.com/lua/lua"
 mkdir workdir
 cd workdir
 echo "=== Stage 0, Preparing ==="
